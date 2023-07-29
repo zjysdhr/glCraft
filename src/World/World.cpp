@@ -1,7 +1,5 @@
 #include "World.h"
 
-#include <ranges>
-
 #include "../Application/Window.h"
 #include "../Rendering/ColorRenderPass.h"
 #include "../Rendering/FullscreenQuad.h"
@@ -74,11 +72,11 @@ void World::sortChunkIndices(glm::vec3 playerPos, const Ref<ChunkIndexVector>& c
 
 void World::rebuildChunks(const Ref<ChunkIndexVector>& chunkIndices, const Frustum& frustum) {
   uint32_t meshesRebuilt = 0;
-  for (auto& index: std::ranges::reverse_view(*chunkIndices)) {
+  for (auto index = chunkIndices->rbegin(); index != chunkIndices->rend(); index++) {
     if (meshesRebuilt > MaxRebuildsAllowedPerFrame) {
       break;
     }
-    const auto& chunk = chunks[index.first];
+    const auto& chunk = chunks[index->first];
     if (chunk->needsMeshRebuild() && chunk->isVisible(frustum)) {
       chunk->rebuildMesh(*this);
       meshesRebuilt++;

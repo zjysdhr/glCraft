@@ -12,7 +12,7 @@ Window::Window() {
   instancePtr = this;
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 #ifndef BUILD_TYPE_DIST
   glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
@@ -87,8 +87,8 @@ void Window::setupCallbacks() {
 #ifndef BUILD_TYPE_DIST
   glEnable(GL_DEBUG_OUTPUT);
   glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-  glDebugMessageCallback(onOpenGlMessage, nullptr);
-  glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+  // glDebugMessageCallback(onOpenGlMessage, nullptr);
+  // glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
 #endif
   glfwSwapInterval(1);
 

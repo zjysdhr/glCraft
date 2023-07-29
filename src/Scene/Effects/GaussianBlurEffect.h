@@ -34,7 +34,7 @@ private:
 
   protected:
     [[nodiscard]] std::string emitVertexShaderSource() const override {
-      return "#version 450 core\n"
+      return "#version 410 core\n"
              "layout(location = 0) in vec3 position;\n"
              "void main() {\n"
              "    gl_Position = vec4(position, 1);\n"
@@ -49,7 +49,7 @@ private:
                                                              {1, 10, 45, 120, 210, 252, 210, 120, 45, 10, 1}};
       static std::vector<float> binomialSums = {1, 16, 256, 4096, 65536, 1048576};
       std::stringstream ss;
-      ss << "#version 450 core\n"
+      ss << "#version 410 core\n"
             "uniform sampler2D colorTexture;\n"
             "layout(location = 0) out vec4 color;\n"
             "float kernel[] = {\n";

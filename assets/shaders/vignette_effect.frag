@@ -1,4 +1,4 @@
-#version 450 core
+#version 410 core
 
 uniform sampler2D colorTexture;
 uniform float intensity = 2;
